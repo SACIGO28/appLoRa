@@ -20,15 +20,6 @@
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!--TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/trabajo_de_grado"
-            android:textSize="12dp"
-            android:textStyle="bold" /-->
-
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
@@ -95,14 +86,6 @@
                 android:layout_margin="5dp"
                 android:checked="false"
                 android:text="@string/_868_mhz" />
-
-            <!--RadioButton
-                android:id="@+id/freq433"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:checked="false"
-                android:text="@string/_433_mhz" /-->
         </RadioGroup>
 
         <LinearLayout
