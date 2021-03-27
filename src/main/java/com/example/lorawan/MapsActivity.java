@@ -53,12 +53,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             escala_ib.setImageResource(R.mipmap.rssi);
         }
 
-        /*           //DELETE TO UPLOAD
-       escala_ib.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MapsActivity.this," RSSI",Toast.LENGTH_SHORT).show();            }
-        });*/
 
         System.out.println("°°°°°°°° Fin OnCreate ");
     }
@@ -67,14 +61,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         System.out.println("°°°°°°°° inicio OnMapReady: ");
-  /*        try {           //DELETE TO UPLOAD
-            Thread.sleep(400);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            System.out.println("°°°°°°°° NO SE HIZO ESPERA ");
-        }
-        System.out.println("°°°°°°°° 222222222222222222 ");
-*/
+
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
@@ -99,15 +86,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         }
 
-        //    LatLng pinUAO = new LatLng(3.353675, -76.522519);           //DELETE TO UPLOAD
-        //     LatLng pinBG = new LatLng(3.489075, -76.499359);
-        //    LatLng pinSC = new LatLng(3.476649, -76.515322);
 
-        /*
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pinUAO, 17));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(pinUAO));
-        mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_gw_foreground)).anchor(0.4f, 0.4f).position(pinUAO).title(MainActivity.gateway));
-*/
         try {
             System.out.println("FRECUENCIA: " + MainActivity.frec);
             LatLng lalo;
@@ -132,7 +111,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     freq = jo0.getInt("frecuencia");
                     gateway = jo0.getString("gateway");
 
-                    //https://www.youtube.com/watch?v=72OpUnGP5Wg           //DELETE TO UPLOAD
 
                     lalo = new LatLng(Latitud, Longitud);
 
