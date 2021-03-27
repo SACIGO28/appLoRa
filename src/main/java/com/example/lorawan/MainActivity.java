@@ -67,10 +67,8 @@ public class MainActivity extends AppCompatActivity {
         f9 = (RadioButton) findViewById(R.id.freq915);
         f8 = (RadioButton) findViewById(R.id.freq868);
 
-        //    f4 = (RadioButton) findViewById(R.id.freq433);           //DELETE TO UPLOAD
-        //et_lugar = (EditText) findViewById(R.id.lugar_et);
 
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);  //aTRAS recomendacion andstudio
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);  
         getSupportActionBar().setDisplayShowHomeEnabled(true);  //aTRAS
         getSupportActionBar().setIcon(R.mipmap.ic_gw_foreground);
 
@@ -143,8 +141,8 @@ public class MainActivity extends AppCompatActivity {
                     if (gateway.equals(inicial))
                         Toast.makeText(MainActivity.this, "No se seleccionó Gateway", Toast.LENGTH_SHORT).show();
                     else
-                            borrar("http://45.5.188.200:5001/spinner/" + gateway);           //VirtualBox
-                    ///  borrar("http://45.5.188.200:5000/lora-spinner?gateway="+gateway);           //Kubernetes
+                        ///  borrar("http://45.5.188.200:5001/spinner/" + gateway);           //VirtualBox
+                        borrar("http://45.5.188.200:5000/lora-spinner?gateway="+gateway);           //Kubernetes
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -171,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onSuccess(Location location) {
                     // Got last known location. In some rare situations this can be null.
                     System.out.println("°°°°°°°° ddddddddddddd ");
-                  //  https://developers.google.com/android/guides/permissions
+                  
                     if (location != null) {
                         System.out.println("LATITUD: " + location.getLatitude() + " LONGITUD: " + location.getLongitude() + " ALTITUD: " + location.getAltitude());
                         ADubicacion(location);
@@ -211,9 +209,10 @@ public class MainActivity extends AppCompatActivity {
                         lonG1.add(location.getLongitude());
                         System.out.println("LAT: "+ latG1 +" LON: "+ lonG1);
 
-                            String myurl = "http://45.5.188.200:5001/add/" + nombreG + "/" + location.getLatitude() + "/" + location.getLongitude();     //VirtualBox
-                        ///  String myurl = "http://45.5.188.200:5000/lora-spinner-add?gateway=" + nombreG + "&latitud=" + location.getLatitude() + "&longitud=" + location.getLongitude();      //Kubernetes
-                        System.out.println("url add: " + myurl);
+                        ///    String myurl = "http://45.5.188.200:5001/add/" + nombreG + "/" + location.getLatitude() + "/" + location.getLongitude();     //VirtualBox
+                        String myurl = "http://45.5.188.200:5000/lora-spinner-add?gateway=" + nombreG + "&latitud=" + location.getLatitude() + "&longitud=" + location.getLongitude();      //Kubernetes
+                        
+			System.out.println("url add: " + myurl);
                         new MainActivity.Consultar().execute(myurl);
                     }
                 }else {
@@ -237,14 +236,14 @@ public class MainActivity extends AppCompatActivity {
         spinner = new ArrayList<String>();
         spinner.clear();
 
-           String myurl = "http://45.5.188.200:5001/spinner";       //VirtualBox
-        /// String myurl = "http://45.5.188.200:5000/lora-spinner";        //Kubernetes
+         ///  String myurl = "http://45.5.188.200:5001/spinner";       //VirtualBox
+        String myurl = "http://45.5.188.200:5000/lora-spinner";        //Kubernetes
         new MainActivity.Consultar().execute(myurl);
 
         spinner.add(inicial);
 
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinner);
-   //     adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
         lugares.setAdapter(adapter);
 
     }
@@ -293,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
             while ((output = br.readLine()) != null) {
                 System.out.println("OUT: " + output);
 
-                //  ja = thingSpeak(output);           //DELETE TO UPLOAD
+
                 ja = server(output);
 
                 System.out.println("TAMAÑO JA1 = " + ja.length() + "  JSON: " + ja);
@@ -369,13 +368,6 @@ public class MainActivity extends AppCompatActivity {
         return jaa;
     }
 
-    private JSONArray thingSpeak(String output) throws JSONException { ///      DELETE TO UPLOAD
-        JSONObject jo = new JSONObject(output); // JOOOOOOOOOOOOOOOOOOOOOO
-        System.out.println("TAMAÑO Jo = "+jo.length() +"  JSON: "+jo);
-        JSONArray jaa;                   //###
-        jaa = (JSONArray) jo.get("feeds");
-        return jaa;
-    }
 
     private void validar() {
         peticion = 'D';
@@ -390,15 +382,12 @@ public class MainActivity extends AppCompatActivity {
             if (f8.isChecked())
                 frec = 868;
 
-       /* if(f4.isChecked())           //DELETE TO UPLOAD
-            frec=433;*/
-
-            if (f9.isChecked() || f8.isChecked() /*||f4.isChecked()*/ ) {
+            if (f9.isChecked() || f8.isChecked()) {
                 if(gateway.equals(inicial))
                     Toast.makeText(MainActivity.this, "Lugar no seleccionado", Toast.LENGTH_SHORT).show();
                 else{
-                           String myurl = "http://45.5.188.200:5001/" + frec + "/" + gateway;       //VirtualBox
-                    ///   String myurl = "http://45.5.188.200:5000/lora-gateway-param?frec=" + frec + "&gate=" + gateway;     //Kubernetes
+                      ///      String myurl = "http://45.5.188.200:5001/" + frec + "/" + gateway;       //VirtualBox
+                    String myurl = "http://45.5.188.200:5000/lora-gateway-param?frec=" + frec + "&gate=" + gateway;     //Kubernetes
                     System.out.println("url maps: " + myurl);
                     new MainActivity.Consultar().execute(myurl);
                 }
