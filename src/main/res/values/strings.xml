@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">LoRaWAN</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="_433_mhz">433 MHz</string>
+    <string name="seleccione_frecuencia_de_operaci_n">Seleccione frecuencia de operación</string>
+    <string name="ir_a_mapa">RSSI</string>
+    <string name="_868_mhz">868 MHz</string>
+    <string name="_915_mhz">915 MHz</string>
+    <string name="universidad_aut_noma_de_occidente">Universidad Autónoma de Occidente</string>
+    <string name="santiago_cifuentes_bryan_gomez">Santiago Cifuentes - Bryan Gomez</string>
+    <string name="_2020">2021</string>
+    <string name="ubicaci_n_gateway">Ubicación Gateway</string>
+    <string name="trabajo_de_grado">Trabajo de Grado</string>
+    <string name="borrar">SNR</string>
+</resources>

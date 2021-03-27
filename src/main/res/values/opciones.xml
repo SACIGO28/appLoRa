@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="combo_lugares">
+        <item>Seleccione lugar</item>
+        <item>Bryan</item>
+        <item>Santiago</item>
+        <item>UAO</item>
+    </string-array>
+</resources>
